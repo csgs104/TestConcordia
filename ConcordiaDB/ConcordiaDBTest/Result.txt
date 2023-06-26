@@ -1,0 +1,118 @@
+﻿info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (563ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      CREATE DATABASE [Concordia];
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (328ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [Concordia] SET READ_COMMITTED_SNAPSHOT ON;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [__EFMigrationsHistory] (
+          [MigrationId] nvarchar(150) NOT NULL,
+          [ProductVersion] nvarchar(32) NOT NULL,
+          CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20230604111331_InitialMigration'.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Priorities] (
+          [Id] int NOT NULL IDENTITY,
+          [Name] varchar(100) NOT NULL,
+          [Color] varchar(100) NOT NULL,
+          [Code] varchar(24) NULL,
+          CONSTRAINT [PK_Priorities] PRIMARY KEY ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Scientists] (
+          [Id] int NOT NULL IDENTITY,
+          [FullName] varchar(100) NOT NULL,
+          [Code] varchar(24) NULL,
+          CONSTRAINT [PK_Scientists] PRIMARY KEY ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [States] (
+          [Id] int NOT NULL IDENTITY,
+          [Name] varchar(100) NOT NULL,
+          [Code] varchar(24) NULL,
+          CONSTRAINT [PK_States] PRIMARY KEY ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Experiments] (
+          [Id] int NOT NULL IDENTITY,
+          [Name] varchar(100) NOT NULL,
+          [Description] varchar(MAX) NOT NULL,
+          [Loaded] bit NOT NULL,
+          [StartDate] datetimeoffset NULL,
+          [DueDate] datetimeoffset NULL,
+          [PriorityId] int NOT NULL,
+          [StateId] int NOT NULL,
+          [Code] varchar(24) NULL,
+          CONSTRAINT [PK_Experiments] PRIMARY KEY ([Id]),
+          CONSTRAINT [FK_Experiments_Priorities] FOREIGN KEY ([PriorityId]) REFERENCES [Priorities] ([Id]),
+          CONSTRAINT [FK_Experiments_States] FOREIGN KEY ([StateId]) REFERENCES [States] ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Participants] (
+          [Id] int NOT NULL IDENTITY,
+          [ExperimentId] int NOT NULL,
+          [ScientistId] int NULL,
+          CONSTRAINT [PK_Participants] PRIMARY KEY ([Id]),
+          CONSTRAINT [FK_Participants_Experiments] FOREIGN KEY ([ExperimentId]) REFERENCES [Experiments] ([Id]),
+          CONSTRAINT [FK_Participants_Scientists] FOREIGN KEY ([ScientistId]) REFERENCES [Scientists] ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Remarks] (
+          [Id] int NOT NULL IDENTITY,
+          [Text] varchar(MAX) NOT NULL,
+          [Date] datetimeoffset NULL,
+          [ExperimentId] int NOT NULL,
+          [ScientistId] int NOT NULL,
+          [Code] varchar(24) NULL,
+          CONSTRAINT [PK_Remarks] PRIMARY KEY ([Id]),
+          CONSTRAINT [FK_Remarks_Experiments] FOREIGN KEY ([ExperimentId]) REFERENCES [Experiments] ([Id]),
+          CONSTRAINT [FK_Remarks_Scientists] FOREIGN KEY ([ScientistId]) REFERENCES [Scientists] ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Experiments_PriorityId] ON [Experiments] ([PriorityId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Experiments_StateId] ON [Experiments] ([StateId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Participants_ExperimentId] ON [Participants] ([ExperimentId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Participants_ScientistId] ON [Participants] ([ScientistId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Remarks_ExperimentId] ON [Remarks] ([ExperimentId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Remarks_ScientistId] ON [Remarks] ([ScientistId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+      VALUES (N'20230604111331_InitialMigration', N'7.0.5');

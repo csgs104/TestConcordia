@@ -1,0 +1,145 @@
+private static TimeSpan DelayEvery24H()
+{
+    // calculate the remaining time until the next restart
+    DateTimeOffset currentTime = DateTimeOffset.Now.AddMinutes(10);
+    DateTimeOffset restartTime = currentTime.Date.AddDays(1).AddHours(0);
+    // delay the execution until the next restart
+    return restartTime - DateTimeOffset.Now;
+}
+
+private static TimeSpan DelayEvery12H()
+{
+    // calculate the remaining time until the next restart
+    DateTimeOffset currentTime = DateTimeOffset.Now.AddMinutes(10);
+    DateTimeOffset restartTime;
+    // set the restart times to 12:00 or to 24:00 (next day)
+    if (currentTime.TimeOfDay < new TimeSpan(12, 0, 0))
+    {
+        // Set restart time to 12:00
+        restartTime = currentTime.Date.AddHours(12);
+    }
+    else
+    {
+        // Set restart time to 24:00
+        restartTime = currentTime.Date.AddDays(1);
+    }
+    // delay the execution until the next restart
+    return restartTime - DateTimeOffset.Now;
+}
+
+private static TimeSpan DelayEvery6H()
+{
+    // Calculate the remaining time until the next restart
+    DateTimeOffset currentTime = DateTimeOffset.Now.AddMinutes(10);
+    DateTimeOffset restartTime;
+    // set the restart times to 6:00, 12:00, 18:00, 24:00 (next day)
+    if (currentTime.TimeOfDay < new TimeSpan(6, 0, 0))
+    {
+        // set restart time to 6:00
+        restartTime = currentTime.Date.AddHours(6);
+    }
+    else if (currentTime.TimeOfDay < new TimeSpan(12, 0, 0))
+    {
+        // set restart time to 12:00
+        restartTime = currentTime.Date.AddHours(12);
+    }
+    else if (currentTime.TimeOfDay < new TimeSpan(18, 0, 0))
+    {
+        // set restart time to 18:00
+        restartTime = currentTime.Date.AddHours(18);
+    }
+    else
+    {
+        // set restart time to 24:00 (next day)
+        restartTime = currentTime.Date.AddDays(1);
+    }
+    // delay the execution until the next restart
+    return restartTime - DateTimeOffset.Now;
+}
+
+
+private static TimeSpan DelayEvery12H()
+{
+    // calculate the remaining time until the next restart
+    DateTimeOffset currentTime = DateTimeOffset.Now;
+    DateTimeOffset restartTime;
+    // set the restart times to 12:00 or to 24:00 (next day)
+    if (currentTime.TimeOfDay < new TimeSpan(12, 0, 0))
+    {
+        // Set restart time to 12:00
+        restartTime = currentTime.Date.AddHours(12);
+    }
+    else
+    {
+        // Set restart time to 24:00
+        restartTime = currentTime.Date.AddDays(1);
+    }
+    // calculate the delay
+    TimeSpan delay = restartTime - currentTime;
+    // delay the execution until the next restart
+    return delay;
+}
+
+private static TimeSpan DelayEvery6H()
+{
+    // Calculate the remaining time until the next restart
+    DateTimeOffset currentTime = DateTimeOffset.Now;
+    DateTimeOffset restartTime;
+    // set the restart times to 6:00, 12:00, 18:00, 24:00 (next day)
+    if (currentTime.TimeOfDay < new TimeSpan(6, 0, 0))
+    {
+        // set restart time to 6:00
+        restartTime = currentTime.Date.AddHours(6);
+    }
+    else if (currentTime.TimeOfDay < new TimeSpan(12, 0, 0))
+    {
+        // set restart time to 12:00
+        restartTime = currentTime.Date.AddHours(12);
+    }
+    else if (currentTime.TimeOfDay < new TimeSpan(18, 0, 0))
+    {
+        // set restart time to 18:00
+        restartTime = currentTime.Date.AddHours(18);
+    }
+    else
+    {
+        // set restart time to 24:00 (next day)
+        restartTime = currentTime.Date.AddDays(1);
+    }
+    // calculate the delay
+    TimeSpan delay = restartTime - currentTime;
+    // delay the execution until the next restart
+    return delay;
+}
+
+private static TimeSpan DelayEveryNumHours(int num)
+{
+    DateTimeOffset currentTime = DateTimeOffset.Now.AddMinutes(10);
+    DateTimeOffset restartTime = currentTime.Date.AddDays(1);
+    int currentHours = currentTime.TimeOfDay.Hours;
+    for (int hours = 0; hours < 24; hours += num)
+    {
+        if (hours > currentHours)
+	{
+            restartTime = currentTime.Date.AddHours(hours);
+            break;
+        }
+    }
+    return restartTime - DateTimeOffset.Now;
+}
+
+private static TimeSpan DelayEveryNumMinutes(int num)
+{
+    DateTimeOffset currentTime = DateTimeOffset.Now.AddMinutes(10);
+    DateTimeOffset restartTime = currentTime.Date.AddDays(1);
+    int currentMinutes = currentTime.TimeOfDay.Minutes;
+    for (int minutes = 0; minutes < 1440; minutes += num)
+    {
+        if (minutes > currentMinutes)
+        {
+            restartTime = currentTime.Date.AddMinutes(minutes);
+            break;
+        }
+    }
+    return restartTime - DateTimeOffset.Now;
+}

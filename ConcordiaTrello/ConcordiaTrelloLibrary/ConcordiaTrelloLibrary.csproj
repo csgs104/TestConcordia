@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>b46cee9a-0be5-45b4-b13c-d4fc07b79829</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Gateways\" />
+    <None Remove="Gateways\Abstract\" />
+    <None Remove="Gateways\Classes\" />
+    <None Remove="Models\Extensions\" />
+    <None Remove="Networks\Extension\" />
+    <None Remove="Networks\" />
+    <None Remove="Gateways\Abstract\ITrelloGateways\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Gateways\" />
+    <Folder Include="Gateways\Abstract\" />
+    <Folder Include="Gateways\Classes\" />
+    <Folder Include="Models\Extensions\" />
+    <Folder Include="Networks\" />
+    <Folder Include="Gateways\Abstract\ITrelloGateways\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="TrelloDotNet" Version="1.6.6" />
+  </ItemGroup>
+</Project>

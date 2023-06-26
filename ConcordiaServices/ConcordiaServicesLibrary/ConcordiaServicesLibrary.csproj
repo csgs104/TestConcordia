@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Reporters\" />
+    <None Remove="Sender\" />
+    <None Remove="Synchronizers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reporters\" />
+    <Folder Include="Senders\" />
+    <Folder Include="Synchronizers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="6.2.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConcordiaDB\ConcordiaDBLibrary\ConcordiaDBLibrary.csproj" />
+    <ProjectReference Include="..\..\ConcordiaTrello\ConcordiaTrelloLibrary\ConcordiaTrelloLibrary.csproj" />
+  </ItemGroup>
+</Project>

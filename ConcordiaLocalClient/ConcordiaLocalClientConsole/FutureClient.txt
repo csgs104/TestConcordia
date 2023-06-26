@@ -1,0 +1,75 @@
+﻿/*
+
+NOT FOR NOW...
+
+TcpClient client = null;
+try
+{
+    var builder = Host.CreateDefaultBuilder(args);
+
+    // Configuring Services
+    builder.ConfigureServices((context, services) =>
+    {
+        // IP and Port of Local Server
+        var serverIp = Settings.GetLocalServerIp();
+        var serverPort = int.Parse(Settings.GetLocalServerPort());
+
+        services.AddSingleton(_ => new TcpClient(serverIp, serverPort));
+    });
+
+    // Starting 
+    var host = builder.Build() ?? throw new Exception("Host is not Ready.");
+
+    // Connection to Local Server
+    client = host.Services.GetService<TcpClient>() ?? throw new Exception("Local Server not Found.");
+    Console.WriteLine("Connected to Local Server.");
+
+    // Connection Stream
+    NetworkStream stream = client.GetStream();
+
+    var buffer = new byte[0];
+    var bytesRead = 0;
+    var message = string.Empty;
+
+    while (true)
+    {
+        buffer = new byte[4096];
+        bytesRead = stream.Read(buffer, 0, buffer.Length);
+        message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+        Console.Write(message);
+
+        if (message.EndsWith("Waiting..."))
+        {
+            Console.Write(" Input: ");
+            var input = new StringBuilder();
+            var line = string.Empty;
+            while (true)
+            {
+                line = Console.ReadLine();
+                input.Append(input);
+                if (line.EndsWith("SEND", StringComparison.OrdinalIgnoreCase))
+                {
+                    break;
+                }
+            }
+            var request = input.ToString();
+
+            byte[] inputBuffer = Encoding.ASCII.GetBytes(request);
+            stream.Write(inputBuffer, 0, inputBuffer.Length);
+
+            var exit = request.Replace("SEND", string.Empty).Trim();
+            if (exit.Equals("Exit", StringComparison.OrdinalIgnoreCase))
+            { 
+		        break;
+	        }
+        }
+    }
+    client.Close();
+    Console.WriteLine("Disconnected from Local Server.");
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error: " + ex.Message);
+}
+
+*/

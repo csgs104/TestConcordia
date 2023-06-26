@@ -1,0 +1,33 @@
+public virtual void SendMail(string subject, string body, string file)
+{
+    SmtpClient? smtpClient = null;
+    MailMessage? mailMessage = null;
+    Attachment? attachment = null;
+    try
+    {
+        // configuring SmtpClient
+        smtpClient = new SmtpClient(_host, _port);
+        smtpClient.UseDefaultCredentials = false;
+        smtpClient.Credentials = new NetworkCredential(_fromEmail, _fromPassword);
+        smtpClient.EnableSsl = true;
+        // configuring Attachment
+        attachment = new Attachment(file);
+        // configuring Mail
+        mailMessage = new MailMessage(_fromEmail, _toEmail, subject, body);
+        mailMessage.Attachments.Add(attachment);
+        // sending Mail
+        smtpClient.Send(mailMessage);
+        // Console.WriteLine("Email has been sent.");
+    }
+    catch /* (Exception ex) */
+    {
+        // Console.WriteLine("Email has not been sent.");
+        // Console.WriteLine($"Error: {ex.Message}.");
+    }
+    finally
+    {
+        attachment?.Dispose();
+        mailMessage?.Dispose();
+        smtpClient?.Dispose();
+    }
+}

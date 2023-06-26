@@ -1,0 +1,216 @@
+DROP DATABASE Concordia
+
+-- DATA VALID UNTILL 2023/06/16
+
+-- SCIENTISTS
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 1) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Marco Viola',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 2) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Mario Rossi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 3) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Piero Verdi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 4) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Carlo Fiore',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 5) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('James Rossi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 6) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Rocco Gallo',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 7) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Daisy Rossi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 8) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Grace Verdi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 9) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Lucia Fiume',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 10) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Jenny Rossi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 11) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Diana Gallo',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 12) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Pippo Rossi',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 13) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Betty Fiume',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Scientists] WHERE [Id] = 14) 
+BEGIN INSERT INTO [Concordia].[dbo].[Scientists]         VALUES ('Alice Fiore',NULL) END
+
+-- STATES
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[States] WHERE [Id] = 1) 
+BEGIN INSERT INTO [Concordia].[dbo].[States]         VALUES ('Start',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[States] WHERE [Id] = 2) 
+BEGIN INSERT INTO [Concordia].[dbo].[States]         VALUES ('Working',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[States] WHERE [Id] = 3) 
+BEGIN INSERT INTO [Concordia].[dbo].[States]         VALUES ('Finish',NULL) END
+
+-- PRIORITIES
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Priorities] WHERE [Id] = 1) 
+BEGIN INSERT INTO [Concordia].[dbo].[Priorities]         VALUES ('HIGH','RED',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Priorities] WHERE [Id] = 2) 
+BEGIN INSERT INTO [Concordia].[dbo].[Priorities]         VALUES ('MEDIUM','YELLOW',NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Priorities] WHERE [Id] = 3) 
+BEGIN INSERT INTO [Concordia].[dbo].[Priorities]         VALUES ('LOW','GREEN',NULL) END
+
+-- EXPERIMENTS
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 1) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp1','Description1',1,'2023/05/20','2023/07/20',3,3,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 2) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp2','Description2',1,'2023/05/21','2023/07/21',3,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 3) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp3','Description3',1,'2023/05/22','2023/07/22',2,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 4) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp4','Description4',1,'2023/05/23','2023/07/23',1,3,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 5) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp5','Description5',1,'2023/05/24','2023/07/24',1,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 6) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp6','Description6',1,'2023/05/25','2023/07/25',2,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 7) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp7','Description7',1,'2023/05/26','2023/07/26',1,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 8) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp8','Description8',1,'2023/05/27','2023/07/27',3,3,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 9) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp9','Description9',1,'2023/05/28','2023/07/16',1,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 10) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp10','Description10',1,'2023/05/29','2023/07/17',2,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 11) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp11','Description11',1,'2023/05/30','2023/07/18',3,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 12) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp12','Description12',1,'2023/05/31','2023/07/19',2,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 13) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp13','Description13',1,'2023/06/01','2023/08/01',1,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 14) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp14','Description14',1,'2023/06/02','2023/08/02',3,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 15) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp15','Description15',1,'2023/06/03','2023/08/03',1,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Experiments] WHERE [Id] = 16) 
+BEGIN INSERT INTO [Concordia].[dbo].[Experiments]        VALUES ('Exp16','Description16',1,'2023/06/04','2023/08/04',3,2,NULL) END
+
+-- REMARKS
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 1) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark01','2023/05/21',1,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 2) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark02','2023/05/22',2,2,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 3) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark03','2023/05/23',3,3,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 4) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Comment04','2023/05/24',4,4,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 5) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark05','2023/05/25',5,5,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 6) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark06','2023/05/26',6,6,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 7) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark07','2023/05/27',7,7,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 8) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark08','2023/05/28',8,8,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 9) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark09','2023/05/22',1,9,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 10) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark10','2023/05/23',2,10,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 11) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark11','2023/05/24',3,11,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 12) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark12','2023/05/25',4,12,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 13) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark13','2023/05/26',5,13,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 14) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark14','2023/05/27',6,14,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 15) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark15','2023/05/28',7,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 16) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark16','2023/05/29',8,2,NULL) END
+
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 17) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark17','2023/05/29',9,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 18) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark18','2023/05/30',9,8,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 19) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark19','2023/05/31',9,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 20) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark20','2023/06/01',9,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 21) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark21','2023/06/02',9,8,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 22) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark22','2023/06/03',9,8,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 23) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark23','2023/06/04',9,1,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 24) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark24','2023/06/05',9,8,NULL) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Remarks] WHERE [Id] = 25) 
+BEGIN INSERT INTO [Concordia].[dbo].[Remarks]        VALUES ('Remark25','2023/06/06',9,1,NULL) END
+
+-- PARTICIPANTS
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 1) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (1,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 2) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (2,2) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 3) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (3,3) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 4) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (4,4) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 5) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (5,5) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 6) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (6,6) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 7) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (7,7) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 8) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (8,8) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 9) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (1,9) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 10) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (2,10) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 11) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (3,11) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 12) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (4,12) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 13) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (5,13) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 14) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (6,14) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 15) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (7,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 16) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (8,2) END
+
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 17) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (9,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 18) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (10,2) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 19) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (11,3) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 20) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (12,4) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 21) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (13,5) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 22) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (14,6) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 23) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (15,7) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 24) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (16,8) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 25) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (9,8) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 26) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (10,7) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 27) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (11,6) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 28) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (12,5) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 29) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (13,4) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 30) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (14,3) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 31) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (15,2) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 32) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (16,1) END
+
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 33) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (10,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 34) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (11,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 35) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (12,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 36) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (13,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 37) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (14,1) END
+IF NOT EXISTS (SELECT * FROM [Concordia].[dbo].[Participants] WHERE [Id] = 38) 
+BEGIN INSERT INTO [Concordia].[dbo].[Participants]       VALUES (15,1) END
